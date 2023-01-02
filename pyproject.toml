@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project] 
+name = "odepy"
+description = "An extremely fast propagator for Python, in Python"
+keywords = ["integration", "numba", "speed"]
+version = "1.0.0"
+authors = [
+    { name = "Michele Ceresoli", email="michele.ceresoli7@gmail.com" },
+    { name = "Andrea Pasquale", email="andrea.pasquale@outlook.it"},
+]
+
+readme = "README.md"
+licence = { file = "COPYING" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3", 
+    "License :: OSI Approved :: GPLv3", 
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numba"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest > 6.2",
+    "pytest-cov > 2.12",
+    "coverage"
+]
+doc = [
+    "sphinx"
+]
+
+[project.urls]
+homepage = "https://github.com/MicheleCeresoli/odepy"
+documentation = "" 
+repository = "https://github.com/MicheleCeresoli/odepy.git"
+
+[tool.setuptools]
+packages = []
