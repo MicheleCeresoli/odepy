@@ -198,7 +198,7 @@ def ridder(event: Callable[[float, np.ndarray, np.ndarray], Tuple[float, int, in
 
     return False, t
 
-@jit("Tuple((int64[::1], float64[::1], b1))(" + event_wrapper_signature +
+@jit("Tuple((int64[::1], float64[::1], b1, b1))(" + event_wrapper_signature +
      ", int64[::1], int64[::1], float64[::1], float64[::1], float64[:, ::1]," +
      "b1, float64, float64, float64, int64)", **jit_settings)
 def handle_events(events: List[Callable[[float, np.ndarray, np.ndarray],
@@ -250,17 +250,17 @@ def handle_events(events: List[Callable[[float, np.ndarray, np.ndarray],
         Event times of all the active events returned.
     terminate : boolean
         True if one of the active events is terminal.
-
-    Notes
-    -----
-    Currently, no errors are raised if the root finding algorithm
-    does not reach convergence within the given `maxiter` iterations.
+    converged: boolean 
+        True if all the active events reached convergence.
     """
 
     roots = np.zeros((len(active_events,)))
     for k, idx in enumerate(active_events):
-        _, roots[k] = ridder(events[idx], yk, args, Q, DOP,
+        converged, roots[k] = ridder(events[idx], yk, args, Q, DOP,
                              tk_old, tk, event_tol, maxiter)
+
+        if not converged: 
+            return active_events, roots, True, False
 
     # If there are any terminal events, only the ones that happen before the
     # first terminal event are returned
@@ -282,4 +282,4 @@ def handle_events(events: List[Callable[[float, np.ndarray, np.ndarray],
     else:
         terminate = False
 
-    return active_events, roots, terminate
+    return active_events, roots, terminate, True

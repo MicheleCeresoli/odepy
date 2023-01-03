@@ -146,7 +146,9 @@ def solver(fun: Callable[[np.ndarray, float, np.ndarray, np.ndarray], None],
               tolerance is below the machine precision.
          * 3: A terminal event has been activated. The integration
               successfully stopped before reaching the end of `tspan`.
-
+         * 4: The integration stopped because the solver was unable to 
+              reach convergence on the root of an active event.
+            
     Notes
     -----
     The function does not currently support integration in the
@@ -256,9 +258,14 @@ def solver(fun: Callable[[np.ndarray, float, np.ndarray, np.ndarray], None],
                         fun, tk, yk, args, ykp, fk, h_old, K, params[0],
                         params[2], params[5], params[9], params[-1], isDOP)
 
-                root_idx, roots, terminate = handle_events(
+                root_idx, roots, terminate, converged = handle_events(
                     events, active_events, evt_terminal, yk, args,
                     Q, isDOP, tk, tkp, events_tol, events_maxiter)
+
+                # The root of at least one active event could not be found.
+                if not converged:
+                    e_flag = 4 
+                    break
 
                 for e, te in zip(root_idx, roots):
                     t_events[e].append(te)
@@ -375,7 +382,8 @@ def fast_ivp(fun: Callable[[np.ndarray, float, np.ndarray, np.ndarray], None],
               tolerance is below the machine precision.
          * 3: A terminal event has been activated. The integration
               successfully stopped before reaching the end of `tspan`.
-
+         * 4: The integration stopped because the solver was unable to 
+              reach convergence on the root of an active event.
     Notes
     -----
     The function does not currently support integration in the
@@ -495,7 +503,8 @@ def fast_ivpe(fun: Callable[[np.ndarray, float, np.ndarray, np.ndarray], None],
               tolerance is below the machine precision.
          * 3: A terminal event has been activated. The integration
               successfully stopped before reaching the end of `tspan`.
-
+         * 4: The integration stopped because the solver was unable to 
+              reach convergence on the root of an active event.
     Notes
     -----
     The function does not currently support integration in the
@@ -620,7 +629,8 @@ def solve(fun: Callable[[np.ndarray, float, np.ndarray, np.ndarray], None],
               tolerance is below the machine precision.
          * 3: A terminal event has been activated. The integration
               successfully stopped before reaching the end of `tspan`.
-
+         * 4: The integration stopped because the solver was unable to 
+              reach convergence on the root of an active event.
     Notes
     -----
     The function does not currently support integration in the
