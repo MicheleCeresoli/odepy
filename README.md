@@ -5,4 +5,4 @@
 [![codecov](https://codecov.io/gh/MicheleCeresoli/odepy/branch/main/graph/badge.svg?token=SmzX8mnKlA)](https://codecov.io/gh/MicheleCeresoli/odepy)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-An extremely fast propagator for Python, in Python
+An extremely fast propagator for Python, in Python.
