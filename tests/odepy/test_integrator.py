@@ -1,14 +1,14 @@
 import numpy as np
 from numba import jit
 
-import odepy as rp
+import odepy as op
 import odepy.tableaus as tb
 import odepy.controllers as ct
 
 jit_settings = {'nopython': True, 'nogil': True}
 
 # A1
-@jit(rp.fun_signature, **jit_settings)
+@jit(op.fun_signature, **jit_settings)
 def A1(dy, t, y, args):
     dy[0] = -y[0]
 
@@ -16,7 +16,7 @@ def A1e(tms, y0):
     y = y0*np.exp(-(tms-tms[0]))
     return y
 
-@jit(rp.fun_signature, **jit_settings)
+@jit(op.fun_signature, **jit_settings)
 def A2(dy, t, y, args):
     dy[0] = -0.5*y[0]**3
 
@@ -26,7 +26,7 @@ def A2e(tms, y0):
     return y
 
 # A3
-@jit(rp.fun_signature, **jit_settings)
+@jit(op.fun_signature, **jit_settings)
 def A3(dy, t, y, args):
     dy[0] = np.cos(t)*y[0]
 
@@ -53,7 +53,7 @@ def test_1d_forward():
     for tab in tableaus:
         for cnt in controllers:
             for fcn, sol in problems:
-                t, y, _ = rp.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
+                t, y, _ = op.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
 
                 assert t == tspan[-1]
                 assert np.isclose(y, sol(tspan, y0)[-1])
@@ -69,13 +69,13 @@ def test_1d_backward():
     for tab in tableaus:
         for cnt in controllers:
             for fcn, sol in problems:
-                t, y, _ = rp.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
+                t, y, _ = op.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
 
                 assert t == tspan[-1]
                 assert np.isclose(y, sol(tspan, y0)[-1])
 
 
-@jit(rp.fun_signature, **jit_settings)
+@jit(op.fun_signature, **jit_settings)
 def fcn(dy, t, y, args):
     for i in range(len(y)):
         dy[i] = -y[i]
@@ -90,7 +90,7 @@ def test_2d_dense_forward():
 
     for tab in tableaus:
         for cnt in controllers:
-            t, y, _ = rp.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
+            t, y, _ = op.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
 
             assert np.all(t == tspan)
             assert y.shape[0] == len(tspan)
@@ -111,7 +111,7 @@ def test_2d_dense_backward():
 
     for tab in tableaus:
         for cnt in controllers:
-            t, y, _ = rp.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
+            t, y, _ = op.fast_ivp(fcn, tspan, y0, args, tab, cnt, atol, rtol)
 
             assert np.all(t == tspan)
             assert y.shape[0] == len(tspan)
@@ -129,5 +129,5 @@ def test_exit_flag():
 
     atol, rtol = 1e-10, 1e-22
 
-    t, y, e_flag = rp.fast_ivp(fcn, tspan, y0, args, tb.Vern9, ct.H312PID, atol, rtol)
+    t, y, e_flag = op.fast_ivp(fcn, tspan, y0, args, tb.Vern9, ct.H312PID, atol, rtol)
     assert e_flag == 2

@@ -1,5 +1,8 @@
 [build-system]
-requires = ["setuptools"]
+requires = [
+    "setuptools",
+    "wheel~=0.37.0"
+]
 build-backend = "setuptools.build_meta"
 
 [project] 
@@ -26,8 +29,8 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-    "pytest > 6.2",
-    "pytest-cov > 2.12",
+    "pytest~=6.2",
+    "pytest-cov~=2.12",
     "coverage"
 ]
 doc = [
@@ -41,3 +44,12 @@ repository = "https://github.com/MicheleCeresoli/odepy.git"
 
 [tool.setuptools]
 packages = []
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
