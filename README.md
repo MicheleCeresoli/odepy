@@ -7,7 +7,7 @@ _An extremely fast propagator for Python, in Python._
 [![codecov](https://codecov.io/gh/MicheleCeresoli/odepy/branch/main/graph/badge.svg?token=ECDAU1ZURX)](https://codecov.io/gh/MicheleCeresoli/odepy)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This is a small suite of **Ordinary Differential Equations (ODEs)** explicit Runge-Kutta solvers for Python that leverages [Numba](https://numba.pydata.org/) to minimise integration times, outperforming well established libraries like [SciPy](https://scipy.org/). Additionally, odepy's integrator capability to be called within numba-decorated functions allows the optimisation and decoration of much larger portion of codes.
+This is a small suite of **Ordinary Differential Equations (ODEs)** Runge-Kutta solvers for Python that leverages [Numba](https://numba.pydata.org/) to minimise integration times, outperforming well established libraries like [SciPy](https://scipy.org/). Additionally, odepy's integrator capability to be called within numba-decorated functions allows the optimisation and decoration of much larger portion of codes.
 
 Each of the available Runge-Kutta solvers comes with a dedicated dense output interpolant: 
   1. **BS5** - Bogacki-Shampine 5/4 method (lazy 5th order interpolant).
