@@ -5,7 +5,7 @@ An Extremely Fast Propagator for Python, in Python
 """
 
 __title__ = "odepy"
-__copyright__ = "© 2022 Michele Ceresoli, Andrea Pasquale"
+__copyright__ = "© 2023 Michele Ceresoli, Andrea Pasquale"
 
 from .version import __version__
 
