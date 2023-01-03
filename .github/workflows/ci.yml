@@ -32,11 +32,11 @@ jobs:
           pip install -e .
 
       - name: Install test dependencies 
-        run: 
+        run: |
         pip install pytest~=6.2 pytest-cov~=2.12 coverage
 
       - name: Run Unit Tests and Collect Coverage 
-        run: 
+        run: |
         python -m pytest --cov tests/
       
       # - name: Upload Coverage to Codecov 
