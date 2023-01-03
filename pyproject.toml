@@ -24,7 +24,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "numba"
+    "numba",
+    "scipy"
 ]
 
 [project.optional-dependencies]
@@ -49,6 +50,9 @@ where = ["src"]
 minversion = "6.0"
 testpaths = [
     "tests",
+]
+filterwarnings = [
+    "ignore::numba.core.errors.NumbaExperimentalFeatureWarning"
 ]
 
 [tool.coverage.run]
