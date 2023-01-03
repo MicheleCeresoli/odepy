@@ -6,7 +6,7 @@ on:
       - main 
     tags: ['*']
   
-  pull_resquest: 
+  pull_request: 
 
 jobs: 
   build: 
