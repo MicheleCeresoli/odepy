@@ -42,7 +42,7 @@ homepage = "https://github.com/MicheleCeresoli/odepy"
 repository = "https://github.com/MicheleCeresoli/odepy.git"
 
 [tool.setuptools.packages.find]
-where = ["odepy"]
+where = ["src"]
 
 
 [tool.pytest.ini_options]
@@ -55,4 +55,4 @@ filterwarnings = [
 ]
 
 [tool.coverage.run]
-source = ["odepy"]
+source = ["src"]
