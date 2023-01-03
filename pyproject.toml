@@ -32,7 +32,6 @@ dependencies = [
 test = [
     "pytest~=6.2",
     "pytest-cov~=2.12",
-    "coverage"
 ]
 doc = [
     "sphinx"
@@ -56,4 +55,4 @@ filterwarnings = [
 ]
 
 [tool.coverage.run]
-source = ["odepy"]
+source = ["src"]
