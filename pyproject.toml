@@ -40,6 +40,7 @@ docs = [
 
 [project.urls]
 homepage = "https://github.com/MicheleCeresoli/odepy"
+documentation = "https://micheleceresoli.github.io/odepy/"
 repository = "https://github.com/MicheleCeresoli/odepy.git"
 
 [tool.setuptools.packages.find]
