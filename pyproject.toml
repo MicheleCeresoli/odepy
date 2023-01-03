@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "setuptools",
-    "wheel~=0.37.0"
+    "wheel",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -16,7 +16,7 @@ authors = [
 ]
 
 readme = "README.md"
-licence = { file = "COPYING" }
+license = { file = "COPYING" }
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3", 
@@ -39,11 +39,11 @@ doc = [
 
 [project.urls]
 homepage = "https://github.com/MicheleCeresoli/odepy"
-documentation = "" 
 repository = "https://github.com/MicheleCeresoli/odepy.git"
 
-[tool.setuptools]
-packages = []
+[tool.setuptools.packages.find]
+where = ["src"]
+
 
 [tool.pytest.ini_options]
 minversion = "6.0"
