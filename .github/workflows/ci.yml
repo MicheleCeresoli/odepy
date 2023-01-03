@@ -33,7 +33,7 @@ jobs:
 
       - name: Install test dependencies 
         run: |
-        pip install pytest~=6.2 pytest-cov~=2.12 coverage
+        python -m pip install pytest~=6.2 pytest-cov~=2.12 coverage
 
       - name: Run Unit Tests and Collect Coverage 
         run: |
