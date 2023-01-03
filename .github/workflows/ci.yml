@@ -35,4 +35,6 @@ jobs:
           pytest --cov=src tests/
 
       - name: Upload Coverage to Codecov 
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
+        with: 
+          token: 02c4a184-abc7-432d-800b-3ef00c132eb5
