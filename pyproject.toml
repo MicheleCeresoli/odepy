@@ -33,7 +33,7 @@ test = [
     "pytest~=6.2",
     "pytest-cov~=2.12",
 ]
-doc = [
+docs = [
     "sphinx",
     "sphinx_rtd_theme"
 ]
