@@ -34,7 +34,8 @@ test = [
     "pytest-cov~=2.12",
 ]
 doc = [
-    "sphinx"
+    "sphinx",
+    "sphinx_rtd_theme"
 ]
 
 [project.urls]
