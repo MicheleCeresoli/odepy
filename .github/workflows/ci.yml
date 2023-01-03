@@ -31,9 +31,9 @@ jobs:
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
           pip install -e .
 
-      - name: Run Unit Tests and Collect Coverage 
+      - name: Run Unit Tests and Collect Coverage
         run: |
-        python -m pytest --cov tests/
+          python -m pytest --cov tests/
       
       # - name: Upload Coverage to Codecov 
       #   uses: codecov/codecov-action@v2
