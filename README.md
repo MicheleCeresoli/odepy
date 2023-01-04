@@ -25,7 +25,7 @@ This package has been designed to maximise performance and flexibility. This is 
 Advanced stepsize control can be enabled for all of odepy's solvers but DOP853 (which comes with its own custom error estimation and control method), including: 
  - **Integral Controller**: the standard proportional control algorithm, adopted by SciPy. 
  - **PI Controller**: second order proportional-integral controllers with improved stabilitiy properties [[3](https://link.springer.com/book/10.1007/978-3-642-05221-7)-[4](https://link.springer.com/book/10.1007/978-3-540-78862-1)]
- - **PID Controller**: it has improved stability and efficiencty properties with respect to the PI Controller [[5](https://linkinghub.elsevier.com/retrieve/pii/S0377042705001123)-[6](https://docs.sciml.ai/DiffEqDocs/dev/extras/timestepping/)]
+ - **PID Controller**: further improves the stability and efficiency properties of PI Controllers [[5](https://linkinghub.elsevier.com/retrieve/pii/S0377042705001123)-[6](https://docs.sciml.ai/DiffEqDocs/dev/extras/timestepping/)]
  
 For a list of all the available controllers, please refer to the [Stepsize control]() documentation.
 
