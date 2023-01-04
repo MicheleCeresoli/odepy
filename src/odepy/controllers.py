@@ -65,7 +65,7 @@ def _basic_control(errs: np.ndarray, betas: np.ndarray,
      **jit_settings)
 def _pid_control(errs: np.ndarray, betas: np.ndarray) -> Tuple[float, bool]:
     """Compute the step-size multiplier for a PID controller.
- nopython=True, nogil=True, cache=True
+ 
     Differently from the integral and PI controllers, for a PID a limiter
     function is used to replace the factor clipping (between a min and max
     value) aswell as to account for the safety factor. Similarly to DE.jl, the
