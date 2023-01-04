@@ -20,6 +20,7 @@ odepy runs on Python 3.7+ and only requires [NumPy](https://numpy.org/), [SciPy]
 This package has been designed to maximise performance and flexibility. This is achieved by optimising and extending some of Scipy's built-in features, including: 
  - H. A. Watts' initial step size selection [[1](https://www.sciencedirect.com/science/article/pii/0377042783900407)]
  - Horner's rule for dense output polynomial evaluation [[2](https://en.wikipedia.org/wiki/Horner%27s_method)]
+ - In-place vector and matrices computations 
 
 Advanced stepsize control can be enabled for all of odepy's solvers but DOP853 (which comes with its own custom error estimation and control method), including: 
  - **Integral Controller**: the standard proportional control algorithm, adopted by SciPy. 
