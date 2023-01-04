@@ -43,3 +43,6 @@ You can easily extend odepy's built-in methods and stepsize controllers by defin
 
 ## Documentation 
 Please refer to the [documentation](https://micheleceresoli.github.io/odepy/) for additional information.
+
+## Supporting 
+The software was developed as part of academic research. If you have found this package useful, please consider starring the repository. 
