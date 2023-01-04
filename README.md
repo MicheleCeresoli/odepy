@@ -30,11 +30,11 @@ Advanced stepsize control can be enabled for all of odepy's solvers but DOP853 (
 For a list of all the available controllers, please refer to the [Stepsize control]() documentation.
 
 Additionally, each of the available Runge-Kutta solvers comes with a dedicated dense output interpolant: 
-  1. **BS5** - Bogacki-Shampine 5/4 method (lazy 5th order interpolant).
-  2. **DOP853** - Hairer's 8/5/3 adaptation of the Dormand-Prince method (7th order interpolant)
-  1. **Vern7** - Verner's "Most Efficient" 7/6 method (lazy 6th order interpolant).
-  2. **Vern8** - Verner's "Most Efficient" 8/7 method (lazy 7th order interpolant).  
-  3. **Vern9** - Verner's "Most Efficient" 9/8 method (lazy 8th order interpolant).
+  - **BS5** - Bogacki-Shampine 5/4 method (lazy 5th order interpolant).
+  - **DOP853** - Hairer's 8/5/3 adaptation of the Dormand-Prince method (7th order interpolant)
+  - **Vern7** - Verner's "Most Efficient" 7/6 method (lazy 6th order interpolant).
+  - **Vern8** - Verner's "Most Efficient" 8/7 method (lazy 7th order interpolant).  
+  - **Vern9** - Verner's "Most Efficient" 9/8 method (lazy 8th order interpolant).
 
 For further details on these algorithms, [see the stable documentation]().
 
